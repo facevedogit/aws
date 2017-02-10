@@ -1,0 +1,12 @@
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\dominio\Cobertura.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\presentacion\controller\SeguroMedicoController.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\dominio\Enfermedad.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\dominio\SeguroMedico.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\dominio\Sexo.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\persistencia\ISeguroMedicoDAO.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\persistencia\SeguroMedicoMensaje.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\persistencia\implementacion\SeguroMedicoDAOImplJDBC.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\dominio\mappers\SeguroMedicoMapper.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\persistencia\excepcion\SeguroMedicoException.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\presentacion\json\impl\JsonTransformerImplJackson.java
+C:\Users\GeopByte\AWS\seguromedico\src\ve\com\aws\seguromedico\presentacion\json\IJsonTransformer.java

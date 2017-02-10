@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Listado de seguros medicos</div>
+	<!-- /.panel-heading -->
+	<div class="panel-body">
+		<div class="dataTable_wrapper">
+			Filtrar por apellido:<input ng-model="filtro.apellido"> <br>
+			<a href="#/seguro/new">Nuevo Seguro Medico</a>
+
+			<table class="table table-striped table-bordered table-hover"
+				id="dataTables-example">
+				<thead>
+					<tr>
+						<th>RIF</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Sexo</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td colspan="3">El Numero de seguros medicos es:</td>
+						<td ng-bind="seguros.length"></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr
+						ng-repeat="seguro in seguros| filteri18n:{apellido:filtro.apellido}"
+						ng-style="{color:($odd?'red':'green')}">
+						<td><a ng-href="#/seguro/edit/{{seguro.idSeguro}}">{{seguro.rif}}</a></td>
+						<td>{{seguro.nombre}}</td>
+						<td>{{seguro.apellido}}</td>
+						<td ng-switch on="seguro.sexo"><span ng-switch-when="H">Hombre</span>
+							<span ng-switch-when="M">Mujer</span> <span ng-switch-when=""></span>
+							<span ng-switch-default>Desconocido</span></td>
+						<td>
+							<button ng-click="borrar(seguro.idSeguro)">Borrar</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div ng-show="bussinessMessages.length > 0">
+				<div>Se han producido los siguientes errores</div>
+				<ul>
+					<li ng-repeat="bussinessMessage in bussinessMessages"><strong
+						ng-hide="businessMessage.fieldName == null">{{bussinessMessage.fieldName}}:</strong>
+						{{bussinessMessage.message}}.</li>
+				</ul>
+				<button ng-click="bussinessMessages = []">Quitar mensajes</button>
+			</div>
+
+		</div>
+	</div>
+</div>

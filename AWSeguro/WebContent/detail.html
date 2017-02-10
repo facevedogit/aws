@@ -1,0 +1,115 @@
+
+<div class="panel panel-default">
+	<div class="panel-heading">Registrar seguro medico</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<a href="#/seguro/listado">Volver</a>
+				<form name="form" role="form" novalidate>
+
+					<div class="form-group">
+						<label for="rif">RIF:</label><input id="rif" name="rif"
+							type="text" ng-model="seguro.rif" required
+							 /> <span
+							ng-show="form.rif.$error.required && form.rif.$dirty">El
+							campo es requerido</span> <span ng-show="form.rif.$error.pattern">No
+							cumple la expresi&oacute;n regular</span>
+					</div>
+					<div class="form-group">
+						<label for="nombre">Nombre:</label><input id="nombre"
+							name="nombre" type="text" ng-model="seguro.nombre" required /> <span
+							ng-show="form.nombre.$error.required && form.nombre.$dirty">El
+							campo es requerido</span>
+					</div>
+
+					<div class="form-group">
+						<label for="apellido">Apellido:</label><input id="apellido"
+							name="apellido" type="text" ng-model="seguro.apellido" required />
+						<span
+							ng-show="form.apellido.$error.required && form.apellido.$dirty">El
+							campo es requerido</span>
+					</div>
+					<div class="form-group">
+						<label for="edad">Edad:</label><input id="edad" name="edad"
+							type="number" ng-model="seguro.edad" required min="18" max="120" />
+						<span ng-show="form.edad.$error.required && form.edad.$dirty">El
+							campo es requerido</span> <span ng-show="form.edad.$error.number">No
+							es un n&uacute;mero</span> <span ng-show="form.edad.$error.min">La
+							edad m&iacute;nima es de 18 a&ntilde;os</span> <span
+							ng-show="form.edad.$error.max">La edad máxima es de 120
+							a&ntilde;os</span>
+					</div>
+					<div class="form-group">
+						<label for="sexo">Sexo:</label><select id="sexo" name="sexo"
+							type="checkbox" ng-model="seguro.sexo"
+							ng-options="sexo.codSexo as sexo.descripcion for sexo in sexos"
+							required><option value="">--Elige opcion--</option></select> <span
+							ng-show="form.sexo.$error.required && form.sexo.$dirty">El
+							campo es requerido</span>
+					</div>
+					<div class="form-group">
+						<label for="casado">Casado:</label><input id="casado"
+							name="casado" type="checkbox" ng-model="seguro.casado" /><br>
+						<label for="numHijos">Cantidad de Hijos:</label><input id="numHijos"
+							name="numHijos" type="text" ng-model="seguro.numHijos" />
+					</div>
+
+					<div class="form-group">
+						<label for="embarazada">Embarazada:</label><input id="embarazada"
+							name="embarazada" type="checkbox" ng-model="seguro.embarazada" /><br>
+						<label for="fechaCreacion">Fecha de creaci&oacute;n:</label><input
+							id="fechaCreacion" name="fechaCreacion" type="text"
+							ng-model="seguro.fechaCreacion" ca-datepicker="dd/mm/yy" />
+					</div>
+
+
+					<div class="form-group">
+						<legend>Coberturas</legend>
+						<label for="oftalmologia">Oftalmologia:</label><input
+							id="oftalmologia" name="oftalmologia" type="checkbox"
+							ng-model="seguro.cobertura.oftalmologia" /><br> <label
+							for="dental">Dental:</label><input id="dental" name="dental"
+							type="checkbox" ng-model="seguro.cobertura.dental" /><br> <label
+							ng-show="seguro.sexo === 'M'" for="fecundacionInVitro">Fecundacion
+							In Vitro:</label><input ng-show="seguro.sexo === 'M'"
+							id="fecundacionInVitro" name="fecundacionInVitro" type="checkbox"
+							ng-model="seguro.cobertura.fecundacionInVitro" /><br>
+					</div>
+					<div class="form-group">
+						<legend>Enfermedades</legend>
+						<label for="corazon">Corazon:</label><input id="corazon"
+							name="corazon" type="checkbox"
+							ng-model="seguro.enfermedad.corazon" /><br> <label
+							for="estomacal">Estomacal:</label><input id="estomacal"
+							name="estomacal" type="checkbox"
+							ng-model="seguro.enfermedad.estomacal" /><br> <label
+							for="rinyones">Ri&ntilde;ones:</label><input id="rinyones"
+							name="rinyones" type="checkbox"
+							ng-model="seguro.enfermedad.rinyones" /><br> <label
+							for="alergia">Alergia:</label><input id="alergia" name="alergia"
+							type="checkbox" ng-model="seguro.enfermedad.alergia" /><br>
+						<label for="nombreAlergia">Nombre de la alergia:</label><input
+							ng-disabled="seguro.enfermedad.alergia === false"
+							id="nombreAlergia" name="nombreAlergia" type="text"
+							ng-model="seguro.enfermedad.nombreAlergia" /><br>
+					</div>
+
+					<button ng-click="guardar()" ng-disabled="form.$invalid">Guardar</button>
+				</form>
+
+				<a href="#/seguro/listado">Volver</a>
+
+				<div ng-show="bussinessMessages.length > 0">
+					<div>Se han producido los siguientes errores</div>
+					<ul>
+						<li ng-repeat="bussinessMessage in bussinessMessages"><strong
+							ng-hide="businessMessage.fieldName == null">{{bussinessMessage.fieldName}}:</strong>
+							{{bussinessMessage.message}}.</li>
+					</ul>
+					<button ng-click="bussinessMessages = []">Quitar mensajes</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
